@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "../interfaces/IEvictionVault.sol";
+import "../interfaces/IEV.sol";
 
 abstract contract EvictionVaultStorage is IEvictionVault {
 

@@ -18,11 +18,14 @@ contract EvictionVaultTest is Test {
     uint256 threshold = 2;
 
     function setUp() public {
+
+
         owners.push(owner1);
         owners.push(owner2);
         owners.push(owner3);
         
         vm.deal(owner1, 100 ether);
+
         vm.startPrank(owner1);
         vault = new EvictionVault{value: 10 ether}(owners, threshold);
         vm.stopPrank();
@@ -32,6 +35,7 @@ contract EvictionVaultTest is Test {
     }
 
     function test_Deposit() public {
+
         vm.startPrank(user1);
         vault.deposit{value: 5 ether}();
         vm.stopPrank();
@@ -102,6 +106,7 @@ contract EvictionVaultTest is Test {
         vm.stopPrank();
 
         vm.warp(block.timestamp + 1 hours + 1 seconds);
+        
         vault.executeTransaction(0);
 
         assertTrue(vault.paused());

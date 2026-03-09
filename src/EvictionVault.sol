@@ -18,12 +18,11 @@ contract EvictionVault is VaultCore, MultisigCore, MerkleClaim {
         for (uint i = 0; i < _owners.length; i++) {
             address o = _owners[i];
 
-
+            
             require(o != address(0), "zero address owner");
 
             // checking to ensure no duplicate user
             require(!isOwner[o], "duplicate owner"); 
-            
             isOwner[o] = true;
             owners.push(o);
         }
